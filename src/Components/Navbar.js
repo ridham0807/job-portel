@@ -2,14 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const handleLoginClick = () => {
+    window.location.href = '/register';
+  };
+    const handleSignClick = () => {
+      window.location.href = "/login";
+    };
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img className="logo"
+          <img
+            className="logo"
             src="https://cdn5.vectorstock.com/i/1000x1000/74/44/job-portal-lettering-logo-design-template-concept-vector-37017444.jpg"
             alt=""
-          /><br></br>
+          />
+          <br></br>
           {/* JOB-PORTEL */}
         </Link>
         <button
@@ -59,8 +67,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="btnn">
-          <button className="btn ">LOGIN</button>
-          <button className="btn ">REGISTER</button>
+          <button className="btn " onClick={handleSignClick}>
+            LOGIN
+          </button>
+          <button className="btn " onClick={handleLoginClick}>
+            REGISTER
+          </button>
         </div>
       </div>
     </nav>
