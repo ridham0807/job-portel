@@ -18,7 +18,6 @@ const Navbar = () => {
             alt=""
           />
           <br></br>
-          {/* JOB-PORTEL */}
         </Link>
         <button
           className="navbar-toggler"
@@ -41,7 +40,7 @@ const Navbar = () => {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="/business">
+                <Link className="nav-link" to="/post-jobs">
                   Post-jobs
                 </Link>
               </li>
@@ -61,7 +60,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/sports">
+                <Link className="nav-link" to="/contect">
                   Contect
                 </Link>
               </li>

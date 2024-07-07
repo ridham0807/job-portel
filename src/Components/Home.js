@@ -1,4 +1,5 @@
 import React from "react";
+import Socialmedia from "./Socialmedia";
 
 
 export default function Home() {
@@ -36,6 +37,9 @@ export default function Home() {
               alt="Career Search"
               style={{ objectFit: "cover", width: "100%", height: "auto" }}
             />
+          </div>
+          <div className="social">
+            <Socialmedia/>
           </div>
         </div>
       </div>

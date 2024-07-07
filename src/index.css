@@ -426,3 +426,11 @@ body, html {
   height: auto;
   border-radius: 8px;
 }
+.Contect-1{
+  display: flex;
+  justify-content: center;
+  width:auto;
+}
+.comtect-me{
+  padding: 50px;
+}
