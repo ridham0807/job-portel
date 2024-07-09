@@ -1,54 +1,73 @@
 import React, { useState } from "react";
-import { database } from "./firebase";
-import { ref, push } from "firebase/database";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD0NAOfuGHY_kzfZPT9dFFyu7y5beCc7GU",
+  authDomain: "job-portel-bee19.firebaseapp.com",
+  databaseURL: "https://job-portel-bee19-default-rtdb.firebaseio.com",
+  projectId: "job-portel-bee19",
+  storageBucket: "job-portel-bee19.appspot.com",
+  messagingSenderId: "972475632209",
+  appId: "1:972475632209:web:89bf376564eda5c9b8c670",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 export default function Login() {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const provider = new GoogleAuthProvider();
 
-  const postData = (e) => {
-    const { name, value } = e.target;
-    setData({ ...data, [name]: value });
+  const googleSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log("Google sign-in successful:", result.user.email);
+        alert("Google sign-in successful: " + result.user.email);
+      })
+      .catch((error) => {
+        console.error("Google sign-in error:", error.code, error.message);
+        alert(`Google sign-in failed: ${error.message}`);
+      });
   };
 
-  const submitData = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    const { email, password } = data;
-
-    try {
-      const loginRef = ref(database, "loginrecord");
-      await push(loginRef, {
-        email,
-        password,
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log("User signed in:", userCredential.user.email);
+        alert("Login successful");
+      })
+      .catch((error) => {
+        console.error("Login error:", error.code, error.message);
+        alert(`Login failed: ${error.message}`);
       });
-      alert("Data stored");
-    } catch (error) {
-      alert("Error storing data: " + error.message);
-    }
   };
 
   return (
     <div className="dharm">
       <div className="form-containerpx px my-3">
         <p className="title">Welcome back</p>
-        <form className="form" onSubmit={submitData}>
+        <form className="form" onSubmit={handleLogin}>
           <input
             type="email"
             name="email"
             className="input"
             placeholder="Email"
-            value={data.email}
-            onChange={postData}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             name="password"
             className="input"
             placeholder="Password"
-            value={data.password}
-            onChange={postData}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <p className="page-link">
             <span className="page-link-label">Forgot Password?</span>
@@ -64,7 +83,10 @@ export default function Login() {
           </a>
         </p>
         <div className="buttons-container">
-          <div className="apple-login-button">
+          <div
+            className="apple-login-button"
+            onClick={() => alert("Apple login is not implemented yet")}
+          >
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -79,14 +101,12 @@ export default function Login() {
             </svg>
             <span>Log in with Apple</span>
           </div>
-          <div className="google-login-button">
+          <div className="google-login-button" onClick={googleSignIn}>
             <svg
               stroke="currentColor"
               fill="currentColor"
               strokeWidth="0"
               version="1.1"
-              x="0px"
-              y="0px"
               className="google-icon"
               viewBox="0 0 48 48"
               height="1em"
@@ -115,6 +135,7 @@ export default function Login() {
   c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
               ></path>
             </svg>
+
             <span>Log in with Google</span>
           </div>
         </div>
