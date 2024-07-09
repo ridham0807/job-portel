@@ -6,7 +6,7 @@ import Register from "./Components/Register"
 import Home from "./Components/Home";
 import Contect from "./Components/Contect";
 import Post_jobs from "./Components/Post_jobs";
-
+import Viewjobs from "./Components/View-jobs";
 
 const App = () => {
   return (
@@ -18,6 +18,7 @@ const App = () => {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/post-jobs" element={<Post_jobs />} />
         <Route exact path="/contect" element={<Contect />} />
+        <Route exact path="/view-jobs" element={<Viewjobs />} />
       </Routes>
     </Router>
   );
