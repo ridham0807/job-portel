@@ -54,7 +54,7 @@ export default function Post_jobs() {
         <form className="container my-4 p-4 border" onSubmit={submitData}>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">
-              Title:
+              Title :
             </label>
             <input
               type="text"
@@ -68,7 +68,7 @@ export default function Post_jobs() {
           </div>
           <div className="mb-3">
             <label htmlFor="salary" className="form-label">
-              Salary:
+              Salary :
             </label>
             <input
               type="number"
@@ -82,7 +82,7 @@ export default function Post_jobs() {
           </div>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
-              Email:
+              Email :
             </label>
             <input
               type="email"
@@ -96,7 +96,7 @@ export default function Post_jobs() {
           </div>
           <div className="mb-3">
             <label htmlFor="company" className="form-label">
-              Company:
+              Company :
             </label>
             <input
               type="text"
@@ -110,7 +110,7 @@ export default function Post_jobs() {
           </div>
           <div className="mb-3">
             <label htmlFor="description" className="form-label">
-              Description:
+              Description :
             </label>
             <textarea
               id="description"
@@ -123,7 +123,7 @@ export default function Post_jobs() {
           </div>
           <div className="mb-3">
             <label htmlFor="jobCategory" className="form-label">
-              Job Category:
+              Job Category :
             </label>
             <input
               type="text"
@@ -137,7 +137,7 @@ export default function Post_jobs() {
           </div>
           <div className="mb-3">
             <label htmlFor="jobType" className="form-label">
-              Job Type:
+              Job Type :
             </label>
             <select
               id="jobType"
@@ -157,7 +157,7 @@ export default function Post_jobs() {
           </div>
           <div className="mb-3">
             <label htmlFor="jobExperience" className="form-label">
-              Job Experience:
+              Job Experience :
             </label>
             <input
               type="text"
@@ -171,7 +171,7 @@ export default function Post_jobs() {
           </div>
           <div className="mb-3">
             <label htmlFor="jobVacancy" className="form-label">
-              Job Vacancy:
+              Job Vacancy :
             </label>
             <input
               type="number"
@@ -185,7 +185,7 @@ export default function Post_jobs() {
           </div>
           <div className="mb-3">
             <label htmlFor="jobDeadline" className="form-label">
-              Job Deadline:
+              Job Deadline :
             </label>
             <input
               type="date"
@@ -196,9 +196,11 @@ export default function Post_jobs() {
               onChange={postData}
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100">
+          <div className="btnn">
+          <button type="submit" className="btn btn-primary w-15">
             Submit
           </button>
+          </div>
         </form>
       </div>
     </div>
